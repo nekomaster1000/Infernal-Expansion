@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "infernalexp",
+  "version": "${version}",
+
+  "name": "Infernal Expansion",
+  "description": "A nether overhaul mod",
+  "authors": [
+    "BaconKami"
+  ],
+  "contact": {
+    "homepage": "https://discord.gg/UYGSn94",
+    "sources": ""
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/infernalexp/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.baconkami.infernalexp.InfernalExpansion"
+    ]
+  },
+  "mixins": [
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}

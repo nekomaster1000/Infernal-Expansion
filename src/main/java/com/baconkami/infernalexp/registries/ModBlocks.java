@@ -80,7 +80,7 @@ public class ModBlocks {
     }
 
     private static Block register(String key, Block block) {
-        Registry.register(Registry.BLOCK, new Identifier(key, InfernalExpansion.MOD_ID), block);
+        Registry.register(Registry.BLOCK, new Identifier(InfernalExpansion.MOD_ID, key), block);
         return block;
     }
 

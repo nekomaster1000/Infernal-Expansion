@@ -19,7 +19,7 @@ public class InfernalExpansion  implements ModInitializer {
     }
 
     public static final ItemGroup TAB = FabricItemGroupBuilder.create(
-            new Identifier(MOD_ID, "InfernalTab"))
+            new Identifier(MOD_ID, "infernaltab"))
             .icon(() -> new ItemStack(Items.GLOWSTONE))
             .build();
 }

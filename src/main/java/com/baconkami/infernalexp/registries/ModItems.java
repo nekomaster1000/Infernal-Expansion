@@ -2,6 +2,7 @@ package com.baconkami.infernalexp.registries;
 
 import com.baconkami.infernalexp.InfernalExpansion;
 import com.baconkami.infernalexp.blocks.ModStairsBlock;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
@@ -12,6 +13,7 @@ import net.minecraft.util.registry.Registry;
 
 
 public class ModItems {
+    // Block Items
     public static Item DIMSTONE;
     public static Item DULLSTONE;
     public static Item SMOOTH_GLOWSTONE;
@@ -35,8 +37,18 @@ public class ModItems {
     public static Item DIMSTONE_BRICK_STAIRS;
     public static Item DULLSTONE_BRICK_SLAB;
     public static Item DULLSTONE_BRICK_STAIRS;
+    public static Item GLOWDUST;
+    public static Item GLOWDUST_SAND;
+    public static Item GLOWDUST_SANDSTONE;
+    public static Item CUT_GLOWDUST_SANDSTONE;
+    public static Item CHISELED_GLOWDUST_SANDSTONE;
+    public static Item GLOWDUST_SANDSTONE_SLAB;
+    public static Item GLOWDUST_SANDSTONE_STAIRS;
 
+    // Items
+    public static Item GLOWCOAL;
     public static void registerAll() {
+        // Block Items
         DIMSTONE = register("dimstone", ModBlocks.DIMSTONE);
         DULLSTONE = register("dullstone", ModBlocks.DULLSTONE);
         SMOOTH_GLOWSTONE = register("smooth_glowstone", ModBlocks.SMOOTH_GLOWSTONE);
@@ -60,17 +72,24 @@ public class ModItems {
         DIMSTONE_BRICK_STAIRS = register("dimstone_brick_stairs", ModBlocks.DIMSTONE_BRICK_STAIRS);
         DULLSTONE_BRICK_SLAB = register("dullstone_brick_slab", ModBlocks.DULLSTONE_BRICK_SLAB);
         DULLSTONE_BRICK_STAIRS = register("dullstone_brick_stairs", ModBlocks.DULLSTONE_BRICK_STAIRS);
+        GLOWDUST = register("glowdust", ModBlocks.GLOWDUST);
+        GLOWDUST_SAND = register("glowdust_sand", ModBlocks.GLOWDUST_SAND);
+        GLOWDUST_SANDSTONE = register("glowdust_sandstone", ModBlocks.GLOWDUST_SANDSTONE);
+        CUT_GLOWDUST_SANDSTONE = register("cut_glowdust_sandstone", ModBlocks.CUT_GLOWDUST_SANDSTONE);
+        CHISELED_GLOWDUST_SANDSTONE = register("chiseled_glowdust_sandstone", ModBlocks.CHISELED_GLOWDUST_SANDSTONE);
+        GLOWDUST_SANDSTONE_SLAB = register("glowdust_sandstone_slab", ModBlocks.GLOWDUST_SANDSTONE_SLAB);
+        GLOWDUST_SANDSTONE_STAIRS = register("glowdust_sandstone_stairs", ModBlocks.GLOWDUST_SANDSTONE_STAIRS);
+
+        GLOWCOAL = register("glowcoal", new Item(getProperties()));
+        FuelRegistry.INSTANCE.add(GLOWCOAL, 1600);
     }
 
     private static Item register(String key, Block block) {
-        Item item = new BlockItem(block, getProperties());
-        Registry.register(Registry.ITEM, new Identifier(InfernalExpansion.MOD_ID, key), item);
-        return item;
+        return Registry.register(Registry.ITEM, new Identifier(InfernalExpansion.MOD_ID, key), new BlockItem(block, getProperties()));
     }
 
     private static Item register(String key, Item item) {
-        Registry.register(Registry.ITEM, new Identifier(InfernalExpansion.MOD_ID, key), item);
-        return item;
+        return Registry.register(Registry.ITEM, new Identifier(InfernalExpansion.MOD_ID, key), item);
     }
 
     private static Item.Settings getProperties() {

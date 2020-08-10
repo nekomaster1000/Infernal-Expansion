@@ -82,6 +82,7 @@ public class ModItems {
 
         GLOWCOAL = register("glowcoal", new Item(getProperties()));
         FuelRegistry.INSTANCE.add(GLOWCOAL, 1600);
+
     }
 
     private static Item register(String key, Block block) {

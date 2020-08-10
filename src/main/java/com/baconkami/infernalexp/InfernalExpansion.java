@@ -1,8 +1,12 @@
 package com.baconkami.infernalexp;
 
+import com.baconkami.infernalexp.registries.ModBiomes;
 import com.baconkami.infernalexp.registries.ModBlocks;
 import com.baconkami.infernalexp.registries.ModItems;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.biomes.v1.NetherBiomes;
+import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
+import net.fabricmc.fabric.api.biomes.v1.OverworldClimate;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -16,6 +20,7 @@ public class InfernalExpansion  implements ModInitializer {
     public void onInitialize() {
         ModBlocks.registerAll();
         ModItems.registerAll();
+        ModBiomes.registerAll();
     }
 
     public static final ItemGroup TAB = FabricItemGroupBuilder.create(

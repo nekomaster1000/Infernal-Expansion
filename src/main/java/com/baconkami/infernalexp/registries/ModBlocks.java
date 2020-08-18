@@ -43,7 +43,8 @@ public class ModBlocks {
 
     public static Block GLIMMERING_BLACKSTONE;
 
-    public static void registerAll() {
+    public static void registerBlocks() {
+        InfernalExpansion.LOGGER.info("Infernal Expansion: Registering blocks...");
         DIMSTONE = register("dimstone", new Block(getProperties(Blocks.GLOWSTONE).lightLevel(10)));
         DULLSTONE = register("dullstone", new Block(getProperties(Blocks.GLOWSTONE).lightLevel(0)));
         SMOOTH_GLOWSTONE = register("smooth_glowstone", new Block(getProperties(Blocks.STONE).lightLevel(15)));
@@ -77,6 +78,7 @@ public class ModBlocks {
         GLOWDUST_SANDSTONE_STAIRS = register("glowdust_sandstone_stairs", new ModStairsBlock(GLOWDUST_SANDSTONE));
 
         GLIMMERING_BLACKSTONE = register("glimmering_blackstone", new Block(getProperties(Blocks.BLACKSTONE).lightLevel(value -> 12)));
+        InfernalExpansion.LOGGER.info("Infernal Expansion: Blocks registered!");
     }
 
     private static Block register(String key, Block block) {

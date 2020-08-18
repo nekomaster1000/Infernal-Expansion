@@ -23,6 +23,7 @@
     ]
   },
   "mixins": [
+    "infernalexp.mixins.json"
   ],
 
   "depends": {

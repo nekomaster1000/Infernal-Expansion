@@ -1,11 +1,8 @@
 package com.baconkami.infernalexp.registries;
 
 import com.baconkami.infernalexp.InfernalExpansion;
-import com.baconkami.infernalexp.blocks.ModStairsBlock;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SlabBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -47,7 +44,9 @@ public class ModItems {
 
     // Items
     public static Item GLOWCOAL;
-    public static void registerAll() {
+
+    public static void registerItems() {
+        InfernalExpansion.LOGGER.info("Infernal Expansion: Registering items...");
         // Block Items
         DIMSTONE = register("dimstone", ModBlocks.DIMSTONE);
         DULLSTONE = register("dullstone", ModBlocks.DULLSTONE);
@@ -83,6 +82,7 @@ public class ModItems {
         GLOWCOAL = register("glowcoal", new Item(getProperties()));
         FuelRegistry.INSTANCE.add(GLOWCOAL, 1600);
 
+        InfernalExpansion.LOGGER.info("Infernal Expansion: Items registered!");
     }
 
     private static Item register(String key, Block block) {

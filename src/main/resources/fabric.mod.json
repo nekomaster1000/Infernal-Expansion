@@ -33,5 +33,6 @@
   },
   "suggests": {
     "flamingo": "*"
-  }
+  },
+  "accessWidener": "infernalexp.aw"
 }

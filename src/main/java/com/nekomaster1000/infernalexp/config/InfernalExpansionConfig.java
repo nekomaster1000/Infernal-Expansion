@@ -5,7 +5,7 @@ public final class InfernalExpansionConfig {
     //Client
 
 
-    //Server
+    //Common
 
     //Mob Interactions
     public static boolean piglinFearWarpbeetle;

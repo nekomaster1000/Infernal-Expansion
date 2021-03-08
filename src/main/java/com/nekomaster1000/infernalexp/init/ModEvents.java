@@ -36,8 +36,8 @@ public class ModEvents {
         //Recalculates what the configs should be when changed
         if (config.getSpec() == ConfigHolder.CLIENT_SPEC) {
             ConfigHelper.bakeClient(config);
-        } else if (config.getSpec() == ConfigHolder.SERVER_SPEC) {
-            ConfigHelper.bakeServer(config);
+        } else if (config.getSpec() == ConfigHolder.COMMON_SPEC) {
+            ConfigHelper.bakeCommon(config);
         }
     }
 

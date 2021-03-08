@@ -3,7 +3,7 @@ package com.nekomaster1000.infernalexp.config;
 import com.nekomaster1000.infernalexp.InfernalExpansion;
 import net.minecraftforge.common.ForgeConfigSpec;
 
-public class ServerConfig {
+public class CommonConfig {
 
     //Mob Interactions
     final ForgeConfigSpec.BooleanValue piglinFearWarpbeetle;
@@ -39,7 +39,7 @@ public class ServerConfig {
     final ForgeConfigSpec.IntValue giantDeltasRate;
     final ForgeConfigSpec.IntValue embodySSVRate;
 
-    ServerConfig(final ForgeConfigSpec.Builder builder){
+    CommonConfig(final ForgeConfigSpec.Builder builder){
         //Mob Interactions
         builder.push("Mob Interactions");
 

@@ -5,6 +5,7 @@ import com.nekomaster1000.infernalexp.client.InfernalExpansionClient;
 import com.nekomaster1000.infernalexp.config.ConfigHelper;
 import com.nekomaster1000.infernalexp.config.ConfigHolder;
 import com.nekomaster1000.infernalexp.data.SpawnrateManager;
+import com.nekomaster1000.infernalexp.events.DataEvents;
 import com.nekomaster1000.infernalexp.events.MiscEvents;
 import com.nekomaster1000.infernalexp.events.MobEvents;
 import com.nekomaster1000.infernalexp.events.WorldEvents;
@@ -94,6 +95,7 @@ public class InfernalExpansion {
         IEEntityClassifications.register();
 
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new DataEvents());
         MinecraftForge.EVENT_BUS.register(new MiscEvents());
         MinecraftForge.EVENT_BUS.register(new MobEvents());
         MinecraftForge.EVENT_BUS.register(new WorldEvents());

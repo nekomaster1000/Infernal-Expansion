@@ -3,11 +3,10 @@ package com.nekomaster1000.infernalexp.entities;
 import com.nekomaster1000.infernalexp.config.InfernalExpansionConfig;
 import com.nekomaster1000.infernalexp.entities.ai.EatItemsGoal;
 import com.nekomaster1000.infernalexp.entities.ai.TargetWithEffectGoal;
-import com.nekomaster1000.infernalexp.events.MiscEvents;
+import com.nekomaster1000.infernalexp.events.DataEvents;
 import com.nekomaster1000.infernalexp.init.IEItems;
 import com.nekomaster1000.infernalexp.init.IESoundEvents;
 import com.nekomaster1000.infernalexp.util.IBucketable;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
@@ -83,16 +82,16 @@ public class VolineEntity extends MonsterEntity implements IBucketable {
 	// BEHAVIOUR
 	@Override
 	protected void registerGoals() {
-		super.registerGoals();
-		// this.goalSelector.addGoal(0, new TemptGoal(this, 0.6D, TEMPTATION_ITEMS,
-		// false));
-		this.goalSelector.addGoal(0, new VolineEatItemsGoal(this, MiscEvents.getVolineEatTable(), 32.0D, getAttributeValue(Attributes.MOVEMENT_SPEED) * 2.0D));
-		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, getAttributeValue(Attributes.MOVEMENT_SPEED) * 1.2D, true));
+        super.registerGoals();
+        // this.goalSelector.addGoal(0, new TemptGoal(this, 0.6D, TEMPTATION_ITEMS,
+        // false));
+        this.goalSelector.addGoal(0, new VolineEatItemsGoal(this, DataEvents.getVolineEatTable(), 32.0D, getAttributeValue(Attributes.MOVEMENT_SPEED) * 2.0D));
+        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, getAttributeValue(Attributes.MOVEMENT_SPEED) * 1.2D, true));
         this.goalSelector.addGoal(2, new WaterAvoidingRandomWalkingGoal(this, getAttributeValue(Attributes.MOVEMENT_SPEED)));
-		this.goalSelector.addGoal(2, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-		this.goalSelector.addGoal(3, new LookRandomlyGoal(this));
-		this.goalSelector.addGoal(4, new AvoidEntityGoal<>(this, AbstractPiglinEntity.class, 16.0F, getAttributeValue(Attributes.MOVEMENT_SPEED) * 2.0D, getAttributeValue(Attributes.MOVEMENT_SPEED) * 1.5D));
-		this.goalSelector.addGoal(5, new PanicGoal(this, getAttributeValue(Attributes.MOVEMENT_SPEED) * 2.0D));
+        this.goalSelector.addGoal(2, new LookAtGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.addGoal(3, new LookRandomlyGoal(this));
+        this.goalSelector.addGoal(4, new AvoidEntityGoal<>(this, AbstractPiglinEntity.class, 16.0F, getAttributeValue(Attributes.MOVEMENT_SPEED) * 2.0D, getAttributeValue(Attributes.MOVEMENT_SPEED) * 1.5D));
+        this.goalSelector.addGoal(5, new PanicGoal(this, getAttributeValue(Attributes.MOVEMENT_SPEED) * 2.0D));
         this.targetSelector.addGoal(0, new HurtByTargetGoal(this));
         if (InfernalExpansionConfig.MobInteractions.VOLINE_ATTACK_FIRE_RESISTANCE.getBoolean()) {
             this.targetSelector.addGoal(1, new TargetWithEffectGoal(this, LivingEntity.class, true, false, Effects.FIRE_RESISTANCE, null));

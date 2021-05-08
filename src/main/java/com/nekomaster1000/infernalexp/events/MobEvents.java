@@ -228,7 +228,7 @@ public class MobEvents {
             return;
         }
 
-        MiscEvents.getSpawnrateManager().forEach((entity, value) -> {
+        DataEvents.getSpawnrateManager().forEach((entity, value) -> {
             // Get the biomes the entity is allowed to spawn in from InfernalExpansionConfig
             List<String> spawnableBiomes = Arrays.asList(InfernalExpansionConfig.MobSpawning.getByName(entity.split(":")[1]).getSpawnableBiomes().replace(" ", "").split(","));
 

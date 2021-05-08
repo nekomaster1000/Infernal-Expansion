@@ -5,8 +5,6 @@ import com.nekomaster1000.infernalexp.blocks.HorizontalBushBlock;
 import com.nekomaster1000.infernalexp.config.ConfigHelper;
 import com.nekomaster1000.infernalexp.config.ConfigHolder;
 import com.nekomaster1000.infernalexp.config.InfernalExpansionConfig.Miscellaneous;
-import com.nekomaster1000.infernalexp.data.SpawnrateManager;
-import com.nekomaster1000.infernalexp.data.VolineEatTable;
 import com.nekomaster1000.infernalexp.entities.ShroomloinEntity;
 import com.nekomaster1000.infernalexp.entities.ThrowableFireChargeEntity;
 import com.nekomaster1000.infernalexp.entities.ThrowableMagmaCreamEntity;
@@ -15,7 +13,6 @@ import com.nekomaster1000.infernalexp.init.IEEffects;
 import com.nekomaster1000.infernalexp.init.IEItems;
 import com.nekomaster1000.infernalexp.init.IEParticleTypes;
 import com.nekomaster1000.infernalexp.init.IESoundEvents;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -23,7 +20,6 @@ import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.UseAction;
@@ -38,9 +34,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-
 import net.minecraftforge.common.util.BlockSnapshot;
-import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -57,7 +51,6 @@ import net.minecraftforge.fml.config.ModConfig;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Mod.EventBusSubscriber(modid = InfernalExpansion.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class MiscEvents {
@@ -264,32 +257,5 @@ public class MiscEvents {
                 }
             }
         }
-    }
-
-    private static VolineEatTable volineEatTable;
-    private static SpawnrateManager spawnrateManager;
-
-    @SubscribeEvent
-    public void onResourceReload(AddReloadListenerEvent event) {
-        volineEatTable = new VolineEatTable();
-        spawnrateManager = new SpawnrateManager();
-
-        event.addListener(volineEatTable);
-    }
-
-    public static Map<Item, Map<Item, Integer>> getVolineEatTable() {
-        if (volineEatTable == null) {
-            throw new IllegalStateException("Can not retrieve VolineEatTable until resources have loaded once.");
-        }
-
-        return volineEatTable.getVolineEatTable();
-    }
-
-    public static Map<String, Map<String, SpawnrateManager.SpawnInfo>> getSpawnrateManager() {
-        if (spawnrateManager == null) {
-            spawnrateManager = new SpawnrateManager();
-        }
-
-        return spawnrateManager.getSpawnrates();
     }
 }
